@@ -1,0 +1,25 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                      http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Archetype Created Web Application</display-name>
+	<!--NFDFlightDataTaskListener 监听器，这个监听器的作用是规定每天的两点将member表的打卡都设置成0-未打卡状态 -->
+	<listener>
+		<listener-class>listener.NFDFlightDataTaskListener</listener-class>
+	</listener>
+	<!-- 过滤器编码 -->
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>web.filter.CharchateFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
+
